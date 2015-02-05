@@ -5,6 +5,7 @@
 <body>
   <h1>Bem-vindo ao Clube dos Post</h1>
   
+  {{#if currentUser}}
   <h2>Por favor, cadastre o feed RSS do seu blog</h2>
   <div class="feed-list">
     <ul>
@@ -18,9 +19,12 @@
   	URL: <input type="text" name="feedUrl" size="80" placeholder="Digite a URL do feed RSS do seu blog">
   	<input type="submit" value="Enviar">
   </form>
+  {{/if}}
   
+  <br>
+  {{> loginButtons}}
 </body>
 
 <template name="link">
-  <li>{{URL}}</li>
+  <li>{{URL}}<button class="delete">X</button></li>
 </template>

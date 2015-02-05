@@ -19,7 +19,9 @@ if (Meteor.isClient) {
 
     Feeds.insert({
       URL: url,
-      createdAt: new Date() // current time
+      createdAt: new Date(), // data atual
+      owner: Meteor.userId(),// _id do usuário logado
+  	  username: Meteor.user().username
     });
 
     // Clear form
@@ -28,6 +30,16 @@ if (Meteor.isClient) {
     // Prevent default form submit
     return false;
   }
+});
+  
+  Template.link.events({
+    "click .delete": function(){
+      Feeds.remove(this._id);
+    }
+  })
+  
+  Accounts.ui.config({
+  passwordSignupFields: "Apenas USERNAME"
 });
 }
 
