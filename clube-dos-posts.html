@@ -1,0 +1,26 @@
+<head>
+  <title>Clube dos Posts</title>
+</head>
+
+<body>
+  <h1>Bem-vindo ao Clube dos Post</h1>
+  
+  <h2>Por favor, cadastre o feed RSS do seu blog</h2>
+  <div class="feed-list">
+    <ul>
+      {{#each links}}
+  	    {{> link}}
+      {{/each}}
+    </ul>
+  </div>
+  
+  <form class="novoRss">
+  	URL: <input type="text" name="feedUrl" size="80" placeholder="Digite a URL do feed RSS do seu blog">
+  	<input type="submit" value="Enviar">
+  </form>
+  
+</body>
+
+<template name="link">
+  <li>{{URL}}</li>
+</template>
